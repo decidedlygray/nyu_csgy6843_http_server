@@ -24,7 +24,7 @@ def webServer(port=13331):
 
             filename = message.split()[1]
             print('DBG2:: {}'.format(filename[1:]))
-            f = open(filename[1:], 'rb')
+            f = open(filename[1:], 'r')
             # outputdata = #Fill in start     #Fill in end
             outputdata = f.read()
             print('DBG3:: {}'.format(outputdata))
@@ -40,10 +40,11 @@ def webServer(port=13331):
 
             connectionSocket.send("\r\n".encode())
             connectionSocket.close()
-        except IOError:
+        except IOError as e:
+            print(e)
             #Send response message for file not found (404)
             #Fill in start
-            connectionSocket.send('\nHTTP/1.1 404 Not Found\r\n'.encode())
+            connectionSocket.send('\nHTTP/1.1 404 Not Found\n\n'.encode())
             #Fill in end
 
             #Close client socket
