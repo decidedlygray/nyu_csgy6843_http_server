@@ -8,7 +8,8 @@ def webServer(port=13331):
     #Prepare a sever socket
     #Fill in start
     # serverSocket.bind((gethostname(), port))
-    serverSocket.bind(('127.0.0.1', port))
+    # serverSocket.bind(('127.0.0.1', port))
+    serverSocket.bind(("", port))
     serverSocket.listen(1)
     #Fill in end
 
@@ -43,7 +44,7 @@ def webServer(port=13331):
             connectionSocket.send("\r\n".encode())
             connectionSocket.close()
         except IOError as e:
-            print(e)
+            # print(e)
             #Send response message for file not found (404)
             #Fill in start
             str_http_status = '\nHTTP/1.1 404 Not Found\r\n'
