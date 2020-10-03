@@ -33,7 +33,7 @@ def webServer(port=13331):
             #Send one HTTP header line into socket
             #Fill in start
             str_http_status = '\nHTTP/1.1 200 OK\n\n'
-            print('HTTP STATUS CODE - {}'.format(str_http_status))
+            # print('HTTP STATUS CODE - {}'.format(str_http_status))
             connectionSocket.send(str_http_status.encode())
             #Fill in end
 
@@ -48,7 +48,7 @@ def webServer(port=13331):
             #Send response message for file not found (404)
             #Fill in start
             str_http_status = '\nHTTP/1.1 404 Not Found\r\n'
-            print('HTTP STATUS CODE - {}'.format(str_http_status))
+            # print('HTTP STATUS CODE - {}'.format(str_http_status))
             connectionSocket.send(str_http_status.encode())
             #Fill in end
 
