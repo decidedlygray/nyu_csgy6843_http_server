@@ -21,14 +21,14 @@ def webServer(port=13331):
         try:
             # message = #Fill in start    #Fill in end
             message = connectionSocket.recv(1024)
-            print('DBG:: {}'.format(message))
+            # print('DBG:: {}'.format(message))
 
             filename = message.split()[1]
-            print('DBG2:: {}'.format(filename[1:]))
+            # print('DBG2:: {}'.format(filename[1:]))
             f = open(filename[1:], 'r')
             # outputdata = #Fill in start     #Fill in end
             outputdata = f.read()
-            print('DBG3:: {}'.format(outputdata))
+            # print('DBG3:: {}'.format(outputdata))
 
             #Send one HTTP header line into socket
             #Fill in start
