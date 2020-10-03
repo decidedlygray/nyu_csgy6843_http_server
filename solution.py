@@ -7,8 +7,8 @@ def webServer(port=13331):
 
     #Prepare a sever socket
     #Fill in start
-    # serverSocket.bind((gethostname(), port))
-    serverSocket.bind(('127.0.0.1', port))
+    serverSocket.bind((gethostname(), port))
+    # serverSocket.bind(('127.0.0.1', port))
     #Fill in end
 
     while True:
