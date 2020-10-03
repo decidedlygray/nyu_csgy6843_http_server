@@ -20,18 +20,18 @@ def webServer(port=13331):
         try:
             # message = #Fill in start    #Fill in end
             message = connectionSocket.recv(1024)
-            print('DBG:: {}'.format(message))
+            # print('DBG:: {}'.format(message))
 
             filename = message.split()[1]
-            print('DBG2:: {}'.format(filename[1:]))
+            # print('DBG2:: {}'.format(filename[1:]))
             f = open(filename[1:], 'r')
             # outputdata = #Fill in start     #Fill in end
             outputdata = f.read()
-            print('DBG3:: {}'.format(outputdata))
+            # print('DBG3:: {}'.format(outputdata))
 
             #Send one HTTP header line into socket
             #Fill in start
-            connectionSocket.send('\nHTTP/1.1 200 OK\n\n'.encode())
+            connectionSocket.send('\nHTTP/1.1 200 OK\r\n'.encode())
             #Fill in end
 
             #Send the content of the requested file to the client
@@ -44,7 +44,7 @@ def webServer(port=13331):
             print(e)
             #Send response message for file not found (404)
             #Fill in start
-            connectionSocket.send('\nHTTP/1.1 404 Not Found\n\n'.encode())
+            connectionSocket.send('\nHTTP/1.1 404 Not Found\r\n'.encode())
             #Fill in end
 
             #Close client socket
